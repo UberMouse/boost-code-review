@@ -1,0 +1,78 @@
+body {
+  overflow: hidden;
+  background-color: #dde9ed;
+  color: #364347;
+}
+
+.wheel-of-fortune {
+  margin-bottom: 14rem;
+  @include breakpoint(xxlarge up) {
+    margin-bottom: 3rem;
+  }
+}
+
+.token {
+  z-index: -100;
+  position: relative;
+  width: 600px;
+
+  @include breakpoint(xxlarge up) {
+    width: 60rem;
+  }
+}
+
+.happy-face {
+  margin-bottom: -2rem;
+  z-index: 9999;
+  opacity: 0.99;
+  position: relative;
+  transform: scale(0);
+  width: 75px;
+  height: 75px;
+  @include breakpoint(xxlarge up) {
+    width: 125px;
+    height: 125px;
+    margin-bottom: -4rem;
+  }
+}
+
+.bigger-happy-face {
+  transition: 0.3s linear;
+  transform: scale(1);
+}
+
+.animate {
+  transition: 3s linear;
+  transform: rotate(1800deg);
+}
+.north {
+  transition: 3s linear;
+  transform: rotate(1800deg);
+}
+.east {
+  transition: 3s linear;
+  transform: rotate(1890deg);
+}
+.south {
+  transition: 3s linear;
+  transform: rotate(1980deg);
+}
+.west {
+  transition: 3s linear;
+  transform: rotate(2070deg);
+}
+
+h1 {
+  font-size: 60px;
+  font-weight: 900;
+}
+
+button {
+  color: white !important;
+}
+
+@include breakpoint(xxlarge up) {
+  .row {
+    max-width: 120rem;
+  }
+}

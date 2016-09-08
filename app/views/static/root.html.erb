@@ -1,0 +1,52 @@
+<% content_for(:title) {'Boost Code Review'} %>
+
+<body>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $.get('/reviewers/next', function(reviewers) {
+        var left = $('img:eq(1)');
+        var right = $('img:last');
+
+        left.addClass(reviewers[0].compass_point);
+        right.addClass(reviewers[1].compass_point);
+
+        setTimeout(function() {
+          setTimeout(function() {
+            $('.happy-face').addClass('bigger-happy-face');
+          }, 300);
+          $('button').off('click');
+          $('button').on('click', function() {
+            $.post('/reviewers/advance', function() {
+              alert('Boom! Review queue has advanced');
+            });
+          });
+        }, 3000);
+      });
+    
+      $('button').on('click', function() {
+        alert('Not so fast buster');
+      });
+    });
+  </script>
+  <div style="height: 100%">
+    <div class="row">
+      <div class="medium-12 columns" style="text-align: center; margin-top: 15rem;">
+        <h1>Get ready to be reviewed!</h1>
+        <h2>DNZ and Natlib review generator</h2>
+        <br />
+        <br />
+        <button class="button secondary large">I've assigned my reviewers</button>
+      </div>
+    </div>
+    <div class="row" style="text-align: center; height: 100%">
+      <div class="column align-self-bottom wheel-of-fortune">
+        <img src="/HappyFace.png" class="happy-face" />
+        <img src="/DNZ_Wheel.png" class="token" />
+      </div>
+      <div class="column align-self-bottom wheel-of-fortune">
+        <img src="/HappyFace.png" class="happy-face" />
+        <img src="/Natlib_Wheel.png" class="token" />
+      </div>
+    </div>
+  </div>
+</body>
