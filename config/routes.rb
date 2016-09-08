@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get '/reviewers', to: 'reviewers#index'
   get '/reviewers/next', to: 'reviewers#next'
   post '/reviewers/advance', to: 'reviewers#advance'
-  get '/app', to: 'static#root'
+  get '/', to: 'static#root'
 end
