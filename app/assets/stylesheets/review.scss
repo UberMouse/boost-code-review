@@ -9,6 +9,11 @@ body {
   @include breakpoint(xxlarge up) {
     margin-bottom: 3rem;
   }
+
+  .skip-button {
+    margin-bottom: 10rem;
+    margin-left: 3rem;
+  }
 }
 
 .token {
@@ -60,6 +65,10 @@ body {
 .west {
   transition: 3s linear;
   transform: rotate(2070deg);
+}
+
+.reset {
+  transform: rotate(0deg);
 }
 
 h1 {

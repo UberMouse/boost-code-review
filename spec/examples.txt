@@ -1,0 +1,4 @@
+example_id                                             | status | run_time        |
+------------------------------------------------------ | ------ | --------------- |
+./spec/services/create_new_review_queue_spec.rb[1:1:1] | passed | 0.04489 seconds |
+./spec/services/create_new_review_queue_spec.rb[1:1:2] | passed | 0.17481 seconds |

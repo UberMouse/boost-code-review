@@ -11,18 +11,43 @@
         right.addClass(reviewers[1].compass_point);
 
         setTimeout(function() {
+
           setTimeout(function() {
             $('.happy-face').addClass('bigger-happy-face');
           }, 300);
+
           $('button').off('click');
           $('button').on('click', function() {
             $.post('/reviewers/advance', function() {
               alert('Boom! Review queue has advanced');
             });
           });
+
+          $('.happy-face').click(function() {
+            var team = $(this).attr('data-team');
+
+            $.post('/reviewers/advance_single', {team: team}, function() {
+              location.reload()
+              <%# $.get('/reviewers/next_single', {team: team}, function(data) { %>
+              <%#   function foo(bar) { %>
+              <%#     bar.attr('class', 'token reset'); %>
+              <%#     bar.removeClass('reset'); %>
+              <%#     bar.addClass(data.compass_point); %>
+              <%#   } %>
+
+              <%#   if (team === 'dnz') { %>
+              <%#     foo(left) %>
+              <%#   } %>
+              <%#   if (team === 'natlib') { %>
+              <%#     foo(right) %>
+              <%#   } %>
+              <%# }); %>
+            });
+          });
+
         }, 3000);
       });
-    
+
       $('button').on('click', function() {
         alert('Not so fast buster');
       });
@@ -38,13 +63,14 @@
         <button class="button secondary large">I've assigned my reviewers</button>
       </div>
     </div>
+
     <div class="row" style="text-align: center; height: 100%">
       <div class="column align-self-bottom wheel-of-fortune">
-        <img src="/HappyFace.png" class="happy-face" />
+        <img src="/HappyFace.png" class="happy-face" data-team="dnz" />
         <img src="/DNZ_Wheel.png" class="token" />
       </div>
       <div class="column align-self-bottom wheel-of-fortune">
-        <img src="/HappyFace.png" class="happy-face" />
+        <img src="/HappyFace.png" class="happy-face" data-team="natlib" />
         <img src="/Natlib_Wheel.png" class="token" />
       </div>
     </div>

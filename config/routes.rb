@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get '/reviewers', to: 'reviewers#index'
   get '/reviewers/next', to: 'reviewers#next'
+  get '/reviewers/next_single', to: 'reviewers#next_single'
   post '/reviewers/advance', to: 'reviewers#advance'
+  post '/reviewers/advance_single', to: 'reviewers#advance_single'
   get '/', to: 'static#root'
 end
