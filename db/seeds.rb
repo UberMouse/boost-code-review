@@ -8,7 +8,7 @@
 
 compass_points = %w(north east south west)
 dnz = %w(Taylor Eddy Yar Jeffery)
-natlib = %w(Richard Ben Vicky Dan)
+natlib = %w(Richard Ben Oliver Dan)
 
 dnz.zip(compass_points).each {|(name, cp)| Reviewer.create(name: name, compass_point: cp, team: 'dnz')}
 natlib.zip(compass_points).each {|(name, cp)| Reviewer.create(name: name, compass_point: cp, team: 'natlib')}
