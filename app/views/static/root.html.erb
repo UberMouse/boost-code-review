@@ -18,7 +18,9 @@
 
           $('button').off('click');
           $('button').on('click', function() {
-            $.post('/reviewers/advance', function() {
+            var mrUrl = $('#mr-url').val();
+
+            $.post('/reviewers/advance', {merge_request_url: mrUrl}, function() {
               alert('Boom! Review queue has advanced');
             });
           });
@@ -28,20 +30,6 @@
 
             $.post('/reviewers/advance_single', {team: team}, function() {
               location.reload()
-              <%# $.get('/reviewers/next_single', {team: team}, function(data) { %>
-              <%#   function foo(bar) { %>
-              <%#     bar.attr('class', 'token reset'); %>
-              <%#     bar.removeClass('reset'); %>
-              <%#     bar.addClass(data.compass_point); %>
-              <%#   } %>
-
-              <%#   if (team === 'dnz') { %>
-              <%#     foo(left) %>
-              <%#   } %>
-              <%#   if (team === 'natlib') { %>
-              <%#     foo(right) %>
-              <%#   } %>
-              <%# }); %>
             });
           });
 
@@ -60,7 +48,11 @@
         <h2>DNZ and Natlib review generator</h2>
         <br />
         <br />
-        <button class="button secondary large">I've assigned my reviewers</button>
+        <div class='align-center' style='width: 33%;margin-left: auto;margin-right:auto;'>
+          <label for='mr-url'>URL of Merge/Pull Request</label>
+          <input type='text' id='mr-url' />
+        </div>
+        <button class="button secondary large">Assign my reviewers</button>
       </div>
     </div>
 
