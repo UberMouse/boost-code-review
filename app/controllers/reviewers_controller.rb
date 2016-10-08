@@ -15,8 +15,8 @@ class ReviewersController < ApplicationController
   end
 
   def advance
-    QueuedReviewer.where(reviewer_id: @reviewers.map(&:id)).delete_all
     SlackNotification.new.call(@reviewers.map(&:name), params[:merge_request_url])
+    QueuedReviewer.where(reviewer_id: @reviewers.map(&:id)).delete_all
   end
 
   def advance_single
